@@ -1,0 +1,177 @@
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import EmployeeService from '../../services/EmployeeService';
+
+const UpdateEmployee = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [employee, setEmployee] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    position: '',
+    department: '',
+    joiningDate: ''
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    EmployeeService.getEmployeeById(id)
+      .then(response => {
+        // Format date for the input field (yyyy-MM-dd)
+        const emp = response.data;
+        if (emp.joiningDate) {
+          const date = new Date(emp.joiningDate);
+          emp.joiningDate = date.toISOString().split('T')[0];
+        }
+        setEmployee(emp);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError('Failed to load employee details. ' + error.message);
+        setLoading(false);
+      });
+  }, [id]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEmployee({ ...employee, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    EmployeeService.updateEmployee(id, employee)
+      .then(() => {
+        navigate('/employees');
+      })
+      .catch(error => {
+        setError('Failed to update employee. ' + error.message);
+      });
+  };
+
+  if (loading) {
+    return <div className="text-center mt-5">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="alert alert-danger mt-3">{error}</div>;
+  }
+
+  return (
+    <div className="container mt-4">
+      <h2>Update Employee</h2>
+
+      <form onSubmit={handleSubmit}>
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="firstName"
+              name="firstName"
+              value={employee.firstName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="lastName"
+              name="lastName"
+              value={employee.lastName}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
+              value={employee.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="phone">Phone</label>
+            <input
+              type="text"
+              className="form-control"
+              id="phone"
+              name="phone"
+              value={employee.phone}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <label htmlFor="position">Position</label>
+            <input
+              type="text"
+              className="form-control"
+              id="position"
+              name="position"
+              value={employee.position}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="department">Department</label>
+            <input
+              type="text"
+              className="form-control"
+              id="department"
+              name="department"
+              value={employee.department}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="joiningDate">Joining Date</label>
+          <input
+            type="date"
+            className="form-control"
+            id="joiningDate"
+            name="joiningDate"
+            value={employee.joiningDate}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="d-flex justify-content-between">
+          <button type="submit" className="btn btn-primary">
+            Update Employee
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => navigate('/employees')}
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default UpdateEmployee;
