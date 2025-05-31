@@ -102,7 +102,7 @@ Provide a demo GIF or screenshots of the application in action (e.g., CRUD opera
 ---
 
 ## ✉ License  
-This project is licensed under the MIT License. See `LICENSE` for details.
+This project is licensed under the MIT License. See [`LICENSE`](License) for details.
 
 ---
 
