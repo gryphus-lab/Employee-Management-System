@@ -62,28 +62,62 @@ The **Employee Management System (EMS)** is a Java-based application designed to
 
 ## 📂 Folder Structure  
 ```
-EMS/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── org/
-│   │   │       ├── EMS/
-│   │   │       │   ├── Main.java
-│   │   │       │   ├── model/
-│   │   │       │   │   └── Employee.java
-│   │   │       │   ├── persistence/
-│   │   │       │   │   ├── EmployeeFileHandler.java
-│   │   │       │   │   ├── LoadEmployeesFromFile.java
-│   │   │       │   │   └── SaveEmployeesToFile.java
-│   │   │       │   ├── service/
-│   │   │       │   │   ├── AddEmployee.java
-│   │   │       │   │   ├── DeleteEmployee.java
-│   │   │       │   │   ├── EmployeeService.java
-│   │   │       │   │   ├── ListEmployees.java
-│   │   │       │   │   └── UpdateEmployee.java
-├── employees.xlsx
-├── pom.xml
-└── README.md
+Employee-Management-System/
+├── BackEnd/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com/
+│   │   │   │       └── ems/
+│   │   │   │           └── ems_backend/
+│   │   │   │               ├── config/
+│   │   │   │               │   └── WebConfig.java
+│   │   │   │               ├── controller/
+│   │   │   │               │   └── EmployeeController.java
+│   │   │   │               ├── exception/
+│   │   │   │               │   ├── EmployeeNotFoundException.java
+│   │   │   │               │   └── GlobalExceptionHandler.java
+│   │   │   │               ├── model/
+│   │   │   │               │   └── Employee.java
+│   │   │   │               ├── repository/
+│   │   │   │               │   └── EmployeeRepository.java
+│   │   │   │               ├── service/
+│   │   │   │               │   ├── EmployeeService.java
+│   │   │   │               │   └── EmployeeServiceImpl.java
+│   │   │   │               └── utils/
+│   │   │   │                   └── EmployeeIdGenerator.java
+│   │   │   └── resources/
+│   │   │       └── application.properties
+│   ├── pom.xml or build.gradle
+│   └── README.md
+│
+├── FrontEnd/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── employee/
+│   │   │       ├── AddEmployee.js
+│   │   │       ├── EmployeeDetails.js
+│   │   │       ├── EmployeeList.js
+│   │   │       ├── SearchEmployee.js
+│   │   │       └── UpdateEmployee.js
+│   │   ├── layout/
+│   │   │   ├── Footer.js
+│   │   │   ├── Navbar.js
+│   │   │   └── PageHeader.js
+│   │   ├── pages/
+│   │   │   ├── Home.js
+│   │   │   └── EmployeePage.js
+│   │   ├── services/
+│   │   │   └── EmployeeService.js
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── package.json
+│   └── README.md
+│
+├── README.md
+└── LICENSE
 ```
 
 ---
