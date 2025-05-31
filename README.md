@@ -102,7 +102,7 @@ cd ../FrontEnd
 npm install
 npm start
 ```
-Access the app at: ``` http://localhost:3000.```
+Access the app at: `http://localhost:3000`
 
 ---
 
