@@ -171,8 +171,9 @@ This project is licensed under the MIT License. See [`LICENSE`](LICENSE) for det
 
 ## 💬 Get to Know Me  😁 👨‍💻
 
-- 💼 **LinkedIn:** [Connect with me](www.linkedin.com/in/muhammed-alkulaib-773492238)
-
+- 💼 **LinkedIn:** [Connect with me](https://www.linkedin.com/in/muhammed-alkulaib-773492238)
+  
 - ✖ **Twitter:** [Follow me](https://twitter.com/bo_ashraf)
+  
+- 📬 **Email:** [muhammedalmugera21@gmail.com](mailto:muhammedalmugera21@gmail.com)
 
-- 📬 **Email:** [Connect with me](muhammedalmugera21@gmail.com)
