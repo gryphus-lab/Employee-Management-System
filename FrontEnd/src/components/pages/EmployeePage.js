@@ -1,8 +1,8 @@
 // src/pages/EmployeePage.js
 import React from 'react';
 import { PlusCircle } from 'react-bootstrap-icons';
-import PageHeader from '../components/layout/PageHeader';
-import EmployeeList from '../components/employee/EmployeeList';
+import PageHeader from '../layout/PageHeader';
+import EmployeeList from '../employee/EmployeeList';
 
 export default function EmployeePage() {
   return (

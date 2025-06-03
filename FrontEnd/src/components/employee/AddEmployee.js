@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import EmployeeService from '../../services/EmployeeService';
+import { toast } from 'react-toastify';
 
 const AddEmployee = () => {
   const navigate = useNavigate();
@@ -11,31 +12,50 @@ const AddEmployee = () => {
     phone: '',
     position: '',
     department: '',
+    salary: '',
+    bonus: '',
+    annualVacationDays: '',
     joiningDate: ''
   });
-  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEmployee({ ...employee, [name]: value });
+    const updated = { ...employee, [name]: value };
+
+    updated.name = `${updated.firstName || ''} ${updated.lastName || ''}`.trim();
+    updated.username = (updated.firstName && updated.lastName)
+      ? `${updated.firstName.toLowerCase()}.${updated.lastName.toLowerCase()}`
+      : '';
+
+    setEmployee(updated);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    EmployeeService.createEmployee(employee)
-      .then(() => {
-        navigate('/employees');
-      })
-      .catch((error) => {
-        setError(`Failed to create employee. ${error.message}`);
+
+    const toastId = toast.loading('Creating employee...');
+    try {
+      await EmployeeService.createEmployee(employee);
+      toast.update(toastId, {
+        render: 'Employee created successfully!',
+        type: 'success',
+        isLoading: false,
+        autoClose: 3000
       });
+      navigate('/employees');
+    } catch (error) {
+      toast.update(toastId, {
+        render: `Failed to create employee. ${error.message}`,
+        type: 'error',
+        isLoading: false,
+        autoClose: 3000
+      });
+    }
   };
 
   return (
     <div className="container mt-4">
       <h2>Add New Employee</h2>
-
-      {error && <div className="alert alert-danger">{error}</div>}
 
       <form onSubmit={handleSubmit}>
         <div className="row">
@@ -116,6 +136,46 @@ const AddEmployee = () => {
               required
             />
           </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <label htmlFor="salary">Salary</label>
+            <input
+              type="text"
+              className="form-control"
+              id="salary"
+              name="salary"
+              value={employee.salary}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="bonus">Bonus</label>
+            <input
+              type="text"
+              className="form-control"
+              id="bonus"
+              name="bonus"
+              value={employee.bonus}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="annualVacationDays">Vacation Days</label>
+          <input
+            type="text"
+            className="form-control"
+            id="annualVacationDays"
+            name="annualVacationDays"
+            value={employee.annualVacationDays}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <div className="mb-3">

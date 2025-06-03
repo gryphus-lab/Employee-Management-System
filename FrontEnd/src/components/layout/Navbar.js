@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
 
-        {/* Brand always links to “home” (your Home2 page) */}
+        {/* Brand always links to “home” (your Home page) */}
         <Link className="navbar-brand" to="/">
           Employee Management System
         </Link>

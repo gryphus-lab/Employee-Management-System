@@ -24,7 +24,7 @@ class EmployeeService {
   }
 
   searchEmployees(query) {
-    return axios.get(`${API_URL}/search?q=${encodeURIComponent(query)}`);
+    return axios.get(`${API_URL}/search?query=${encodeURIComponent(query)}`);
   }
 }
 

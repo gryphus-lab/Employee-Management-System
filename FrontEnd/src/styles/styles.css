@@ -20,3 +20,19 @@
 .btn {
   margin-right: 5px;
 }
+
+/* Add hover effect to table rows */
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: background 0.2s ease;
+}
+
+/* Buttons: hover style for consistency */
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Optional: consistent border-radius for modern look */
+.btn, .table, input, select {
+  border-radius: 6px;
+}

@@ -2,6 +2,9 @@
 import React, { Suspense } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,18 +16,18 @@ import {
 import { lazyLoad } from './utils/lazyLoad';
 
 // lazily-loaded layout components
-const Navbar         = lazyLoad(() => import('./components/layout/Navbar'));
-const Footer         = lazyLoad(() => import('./components/layout/Footer'));
-const PageHeader     = lazyLoad(() => import('./components/layout/PageHeader'));
+const Navbar = lazyLoad(() => import('./components/layout/Navbar'));
+const Footer = lazyLoad(() => import('./components/layout/Footer'));
+const PageHeader = lazyLoad(() => import('./components/layout/PageHeader'));
 
 
 
 // lazy components
-const Home           = lazyLoad(() => import('./components/pages/Home'));
-const EmployeeList   = lazyLoad(() => import('./components/employee/EmployeeList'));
-const AddEmployee    = lazyLoad(() => import('./components/employee/AddEmployee'));
+const Home = lazyLoad(() => import('./components/pages/Home'));
+const EmployeeList = lazyLoad(() => import('./components/employee/EmployeeList'));
+const AddEmployee = lazyLoad(() => import('./components/employee/AddEmployee'));
 const UpdateEmployee = lazyLoad(() => import('./components/employee/UpdateEmployee'));
-const EmployeeDetails= lazyLoad(() => import('./components/employee/EmployeeDetails'));
+const EmployeeDetails = lazyLoad(() => import('./components/employee/EmployeeDetails'));
 
 function App() {
   return (
@@ -103,6 +106,16 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          theme="colored" // options: "light", "dark", "colored"
+          hideProgressBar={false}
+          closeOnClick
+        />
+
+
 
         {/* footer */}
         <Footer />

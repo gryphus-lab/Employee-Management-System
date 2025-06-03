@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import PageHeader from '../components/layout/PageHeader';
+import PageHeader from '../layout/PageHeader';
+
 
 export default function Home() {
   const [employees, setEmployees] = useState([]);
@@ -59,7 +60,7 @@ export default function Home() {
             {employees.map((emp, idx) => (
               <tr key={emp.id}>
                 <td>{idx + 1}</td>
-                <td>{`${emp.firstName} ${emp.lastName}`}</td>
+                <td>{emp.name}</td>
                 <td>{emp.email}</td>
                 <td>{emp.phone}</td>
                 <td>{emp.position}</td>

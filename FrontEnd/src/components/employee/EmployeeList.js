@@ -46,9 +46,9 @@ const EmployeeList = () => {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2>Employee List</h2>
-        <Link to="/employees/add" className="btn btn-primary">
-          + Add Employee
+        {/* <h2>Employee List</h2> */}
+        <Link to="/employees/add" className="btn btn-primary ">
+          + Add Employee +
         </Link>
       </div>
 

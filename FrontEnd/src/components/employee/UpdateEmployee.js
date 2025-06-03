@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import EmployeeService from '../../services/EmployeeService';
+import { toast } from 'react-toastify';
 
 const UpdateEmployee = () => {
   const { id } = useParams();
@@ -8,10 +9,14 @@ const UpdateEmployee = () => {
   const [employee, setEmployee] = useState({
     firstName: '',
     lastName: '',
+    name: '',
     email: '',
     phone: '',
     position: '',
     department: '',
+    salary: '',
+    bonus: '',
+    annualVacationDays: '',
     joiningDate: ''
   });
   const [loading, setLoading] = useState(true);
@@ -20,7 +25,6 @@ const UpdateEmployee = () => {
   useEffect(() => {
     EmployeeService.getEmployeeById(id)
       .then(response => {
-        // Format date for the input field (yyyy-MM-dd)
         const emp = response.data;
         if (emp.joiningDate) {
           const date = new Date(emp.joiningDate);
@@ -37,27 +41,38 @@ const UpdateEmployee = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setEmployee({ ...employee, [name]: value });
+    const updated = { ...employee, [name]: value };
+    updated.name = `${updated.firstName || ''} ${updated.lastName || ''}`.trim();
+    updated.username = (updated.firstName && updated.lastName)
+      ? `${updated.firstName.toLowerCase()}.${updated.lastName.toLowerCase()}`
+      : '';
+    setEmployee(updated);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    EmployeeService.updateEmployee(id, employee)
-      .then(() => {
-        navigate('/employees');
-      })
-      .catch(error => {
-        setError('Failed to update employee. ' + error.message);
+    const toastId = toast.loading('Updating employee...');
+    try {
+      await EmployeeService.updateEmployee(id, employee);
+      toast.update(toastId, {
+        render: 'Employee updated successfully!',
+        type: 'success',
+        isLoading: false,
+        autoClose: 3000
       });
+      navigate('/employees');
+    } catch (error) {
+      toast.update(toastId, {
+        render: `Failed to update employee. ${error.message}`,
+        type: 'error',
+        isLoading: false,
+        autoClose: 3000
+      });
+    }
   };
 
-  if (loading) {
-    return <div className="text-center mt-5">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="alert alert-danger mt-3">{error}</div>;
-  }
+  if (loading) return <div className="text-center mt-5">Loading...</div>;
+  if (error) return <div className="alert alert-danger mt-3">{error}</div>;
 
   return (
     <div className="container mt-4">
@@ -142,6 +157,46 @@ const UpdateEmployee = () => {
               required
             />
           </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-6 mb-3">
+            <label htmlFor="salary">Salary</label>
+            <input
+              type="text"
+              className="form-control"
+              id="salary"
+              name="salary"
+              value={employee.salary}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="bonus">Bonus</label>
+            <input
+              type="text"
+              className="form-control"
+              id="bonus"
+              name="bonus"
+              value={employee.bonus}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="annualVacationDays">Vacation Days</label>
+          <input
+            type="text"
+            className="form-control"
+            id="annualVacationDays"
+            name="annualVacationDays"
+            value={employee.annualVacationDays}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <div className="mb-3">
