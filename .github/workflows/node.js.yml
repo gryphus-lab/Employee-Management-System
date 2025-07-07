@@ -26,15 +26,12 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: Set project home
-      run: cd FrontEnd
       
     - name: Enable Corepack
       run: corepack enable
 
     - name: Install dependencies
-      run: yarn install
+      run: cd FrontEnd && yarn install
 
     - name: Run tests
-      run: yarn test
+      run: cd FrontEnd && yarn test
