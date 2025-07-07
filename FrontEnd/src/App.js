@@ -1,4 +1,3 @@
-// src/App.js
 import React, { Suspense } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,14 +19,14 @@ const Navbar = lazyLoad(() => import('./components/layout/Navbar'));
 const Footer = lazyLoad(() => import('./components/layout/Footer'));
 const PageHeader = lazyLoad(() => import('./components/layout/PageHeader'));
 
-
-
 // lazy components
 const Home = lazyLoad(() => import('./components/pages/Home'));
 const EmployeeList = lazyLoad(() => import('./components/employee/EmployeeList'));
 const AddEmployee = lazyLoad(() => import('./components/employee/AddEmployee'));
 const UpdateEmployee = lazyLoad(() => import('./components/employee/UpdateEmployee'));
 const EmployeeDetails = lazyLoad(() => import('./components/employee/EmployeeDetails'));
+const Reports = lazyLoad(() => import('./components/pages/Reports'));
+const Settings = lazyLoad(() => import('./components/pages/Settings'));
 
 function App() {
   return (
@@ -38,27 +37,18 @@ function App() {
         <Navbar />
 
         {/* main content */}
-        <main className="container mt-3 mb-5">
+        <main className="container-fluid mt-3 mb-5">
           <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <PageHeader
-                    title="All Employees"
-                    subtitle="View, edit or delete your team members below."
-                  />
-                  <Home />
-                </>
-              }
-            />
+            {/* Dashboard Home */}
+            <Route path="/" element={<Home />} />
 
+            {/* Employee Management */}
             <Route
               path="/employees"
               element={
                 <>
                   <PageHeader
-                    title="Employee List"
+                    title="Employee Management"
                     subtitle="Manage your employees here."
                   />
                   <EmployeeList />
@@ -85,7 +75,7 @@ function App() {
                 <>
                   <PageHeader
                     title="Edit Employee"
-                    subtitle="Update the employee’s information."
+                    subtitle="Update the employee's information."
                   />
                   <UpdateEmployee />
                 </>
@@ -102,6 +92,12 @@ function App() {
               }
             />
 
+            {/* Reports */}
+            <Route path="/reports" element={<Reports />} />
+
+            {/* Settings */}
+            <Route path="/settings" element={<Settings />} />
+
             {/* catch‐all → go home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
@@ -110,12 +106,10 @@ function App() {
         <ToastContainer
           position="top-right"
           autoClose={3000}
-          theme="colored" // options: "light", "dark", "colored"
+          theme="colored"
           hideProgressBar={false}
           closeOnClick
         />
-
-
 
         {/* footer */}
         <Footer />
