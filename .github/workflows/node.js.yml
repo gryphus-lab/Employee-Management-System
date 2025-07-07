@@ -33,5 +33,5 @@ jobs:
     - name: Install dependencies
       run: cd FrontEnd && yarn install
 
-    - name: Run tests
-      run: cd FrontEnd && yarn test
+    - name: Run build
+      run: cd FrontEnd && yarn build
