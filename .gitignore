@@ -33,3 +33,4 @@ gradle/
 *.war
 *.ear
 out/
+.env
