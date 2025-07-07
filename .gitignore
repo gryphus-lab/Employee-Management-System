@@ -34,3 +34,4 @@ gradle/
 *.ear
 out/
 .env
+/FrontEnd/.yarn/
