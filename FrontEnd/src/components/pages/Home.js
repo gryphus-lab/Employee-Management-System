@@ -4,6 +4,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import PageHeader from '../layout/PageHeader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
+
+const UsersIcon = (props) => <FontAwesomeIcon icon={faUsers} className="text-primary" {...props} />;
 
 export default function Home() {
   const [employees, setEmployees] = useState([]);
@@ -43,6 +47,7 @@ export default function Home() {
   if (loading) {
     return (
       <div className="text-center mt-5">
+        <img src="/logo.ico" alt="Loading..." style={{ width: 56, height: 56, marginBottom: 16, animation: 'pulse 1.5s infinite' }} />
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
@@ -65,13 +70,11 @@ export default function Home() {
 
   return (
     <>
-      {/* Semantic page header */}
-      <PageHeader className="mb-4">
-        <h1 className="display-6">All Employees</h1>
-        <p className="text-muted">
-          View, edit or delete your team members below.
-        </p>
-      </PageHeader>
+      <PageHeader
+        icon={UsersIcon}
+        title="All Employees"
+        subtitle="View, edit or delete your team members below."
+      />
 
       <div className="container py-2">
         <table className="table table-bordered shadow-sm">
@@ -98,18 +101,18 @@ export default function Home() {
                 <td>
                   <Link
                     to={`/employees/view/${emp.id}`}
-                    className="btn btn-sm btn-primary me-1"
+                    className="btn btn-outline-info px-4 me-2"
                   >
                     View
                   </Link>
                   <Link
                     to={`/employees/edit/${emp.id}`}
-                    className="btn btn-sm btn-outline-primary me-1"
+                    className="btn btn-outline-primary px-4 me-2"
                   >
                     Edit
                   </Link>
                   <button
-                    className="btn btn-sm btn-danger"
+                    className="btn btn-outline-danger px-4"
                     onClick={() => deleteEmployee(emp.id)}
                   >
                     Delete

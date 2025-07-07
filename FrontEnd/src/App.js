@@ -32,7 +32,7 @@ const Settings = lazyLoad(() => import('./components/pages/Settings'));
 const LoadingComponent = () => (
   <div className="d-flex flex-column align-items-center justify-content-center" style={{ minHeight: '50vh' }}>
     <img 
-      src="/logo11.png" 
+      src="/logo.ico" 
       alt="Loading..." 
       style={{ width: '64px', height: '64px', animation: 'pulse 1.5s ease-in-out infinite' }}
       className="mb-3"

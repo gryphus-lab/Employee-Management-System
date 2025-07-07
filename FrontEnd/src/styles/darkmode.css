@@ -1,0 +1,409 @@
+/* Fill action buttons on hover for Dashboard (Home) table */
+.table .btn-outline-primary:hover, .table .btn-outline-primary:focus {
+  background-color: #0d6efd !important;
+  color: #fff !important;
+  border-color: #0d6efd !important;
+}
+.table .btn-primary:hover, .table .btn-primary:focus {
+  background-color: #0b5ed7 !important;
+  color: #fff !important;
+  border-color: #0a58ca !important;
+}
+.table .btn-danger:hover, .table .btn-danger:focus {
+  background-color: #bb2d3b !important;
+  color: #fff !important;
+  border-color: #b02a37 !important;
+}
+/* --- Force Bootstrap button colors in dark mode --- */
+body.ems-dark .btn-primary,
+body.ems-dark .btn-primary:hover,
+body.ems-dark .btn-primary:focus {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+    border-color: #0d6efd !important;
+}
+
+body.ems-dark .btn-info,
+body.ems-dark .btn-info:hover,
+body.ems-dark .btn-info:focus {
+    background-color: #0dcaf0 !important;
+    color: #fff !important;
+    border-color: #0dcaf0 !important;
+}
+
+body.ems-dark .btn-danger,
+body.ems-dark .btn-danger:hover,
+body.ems-dark .btn-danger:focus {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+    border-color: #dc3545 !important;
+}
+
+body.ems-dark .btn-success,
+body.ems-dark .btn-success:hover,
+body.ems-dark .btn-success:focus {
+    background-color: #198754 !important;
+    color: #fff !important;
+    border-color: #198754 !important;
+}
+
+body.ems-dark .btn-secondary,
+body.ems-dark .btn-secondary:hover,
+body.ems-dark .btn-secondary:focus {
+    background-color: #6c757d !important;
+    color: #fff !important;
+    border-color: #6c757d !important;
+}
+
+body.ems-dark .btn-outline-primary,
+body.ems-dark .btn-outline-primary:hover,
+body.ems-dark .btn-outline-primary:focus {
+    background-color: transparent !important;
+    color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+body.ems-dark .btn-outline-info,
+body.ems-dark .btn-outline-info:hover,
+body.ems-dark .btn-outline-info:focus {
+    background-color: transparent !important;
+    color: #0dcaf0 !important;
+    border-color: #0dcaf0 !important;
+}
+
+body.ems-dark .btn-outline-danger,
+body.ems-dark .btn-outline-danger:hover,
+body.ems-dark .btn-outline-danger:focus {
+    background-color: transparent !important;
+    color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
+body.ems-dark .btn-outline-success,
+body.ems-dark .btn-outline-success:hover,
+body.ems-dark .btn-outline-success:focus {
+    background-color: transparent !important;
+    color: #198754 !important;
+    border-color: #198754 !important;
+}
+
+body.ems-dark .btn-outline-secondary,
+body.ems-dark .btn-outline-secondary:hover,
+body.ems-dark .btn-outline-secondary:focus {
+    background-color: transparent !important;
+    color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+
+/* --- Text color fixes for dark mode --- */
+body.ems-dark,
+body.ems-dark .text-dark,
+body.ems-dark .footer,
+body.ems-dark .navbar,
+body.ems-dark .copyright,
+body.ems-dark .footer * {
+    color: #f1f1f1 !important;
+}
+
+body.ems-dark .text-muted {
+    color: #b0b8c1 !important;
+}
+
+/* Keep Bootstrap button colors in dark mode for key actions */
+body.ems-dark .btn-success,
+body.ems-dark .btn-success:hover,
+body.ems-dark .btn-success:focus {
+    background-color: #198754 !important;
+    color: #fff !important;
+    border-color: #198754 !important;
+}
+
+body.ems-dark .btn-danger,
+body.ems-dark .btn-danger:hover,
+body.ems-dark .btn-danger:focus {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+    border-color: #dc3545 !important;
+}
+
+body.ems-dark .btn-primary,
+body.ems-dark .btn-primary:hover,
+body.ems-dark .btn-primary:focus {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+    border-color: #0d6efd !important;
+}
+
+body.ems-dark .btn-info,
+body.ems-dark .btn-info:hover,
+body.ems-dark .btn-info:focus {
+    background-color: #0dcaf0 !important;
+    color: #fff !important;
+    border-color: #0dcaf0 !important;
+}
+
+/* Fancy dark mode enhancements */
+body.ems-dark,
+.ems-dark .card,
+.ems-dark .modal-content,
+.ems-dark .dropdown-menu,
+.ems-dark .table,
+.ems-dark .form-control,
+.ems-dark .nav-tabs,
+.ems-dark .tab-content {
+    background: linear-gradient(135deg, #23272b 0%, #181a1b 100%) !important;
+    color: #f1f1f1 !important;
+}
+
+.ems-navbar-fancy {
+    background: linear-gradient(90deg, #23272b 60%, #181a1b 100%) !important;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25), 0 1.5px 0 0 #0d6efd inset !important;
+    border-bottom: 1.5px solid #0d6efd !important;
+}
+
+body.ems-dark .card,
+body.ems-dark .modal-content {
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.18), 0 1.5px 0 0 #0d6efd inset !important;
+    border-radius: 12px !important;
+    border: 1.5px solid #222 !important;
+}
+
+body.ems-dark .btn,
+body.ems-dark .btn-primary,
+body.ems-dark .btn-outline-primary,
+body.ems-dark .btn-success,
+body.ems-dark .btn-outline-success {
+    background: linear-gradient(90deg, #23272b 60%, #181a1b 100%) !important;
+    color: #f1f1f1 !important;
+    border-color: #0d6efd !important;
+    box-shadow: 0 2px 8px 0 rgba(13, 110, 253, 0.08);
+    transition: background 0.2s, color 0.2s;
+}
+
+body.ems-dark .btn:hover,
+body.ems-dark .btn-primary:hover,
+body.ems-dark .btn-outline-primary:hover,
+body.ems-dark .btn-success:hover,
+body.ems-dark .btn-outline-success:hover {
+    background: linear-gradient(90deg, #0d6efd 60%, #23272b 100%) !important;
+    color: #fff !important;
+    border-color: #7abaff !important;
+}
+
+body.ems-dark .nav-tabs .nav-link.active {
+    background: linear-gradient(90deg, #0d6efd 60%, #23272b 100%) !important;
+    color: #fff !important;
+    border: 1.5px solid #7abaff !important;
+    box-shadow: 0 2px 8px 0 rgba(13, 110, 253, 0.08);
+}
+
+body.ems-dark .table th,
+body.ems-dark .table td {
+    border-color: #222 !important;
+}
+
+body.ems-dark .table-striped>tbody>tr:nth-of-type(odd) {
+    background: linear-gradient(90deg, #23272b 80%, #181a1b 100%) !important;
+}
+
+body.ems-dark .table-striped>tbody>tr:nth-of-type(even) {
+    background: linear-gradient(90deg, #181a1b 80%, #23272b 100%) !important;
+}
+
+body.ems-dark .dropdown-menu {
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.18);
+    border-radius: 10px !important;
+}
+
+body.ems-dark .form-control,
+body.ems-dark .form-select {
+    background: linear-gradient(90deg, #23272b 60%, #181a1b 100%) !important;
+    color: #f1f1f1 !important;
+    border: 1.5px solid #0d6efd !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1.5px 0 0 #0d6efd inset !important;
+}
+
+body.ems-dark .form-label,
+body.ems-dark label {
+    color: #7abaff !important;
+}
+
+/* --- EMS Dark Mode Bootstrap Overrides --- */
+body.ems-dark .btn,
+body.ems-dark .btn-primary,
+body.ems-dark .btn-outline-primary,
+body.ems-dark .btn-success,
+body.ems-dark .btn-outline-success {
+    background-color: #23272b !important;
+    color: #f1f1f1 !important;
+    border-color: #888 !important;
+}
+
+body.ems-dark .btn:hover,
+body.ems-dark .btn-primary:hover,
+body.ems-dark .btn-outline-primary:hover,
+body.ems-dark .btn-success:hover,
+body.ems-dark .btn-outline-success:hover {
+    background-color: #444 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.ems-dark .table {
+    background: #23272b !important;
+    color: #f1f1f1 !important;
+    border-color: #444 !important;
+}
+
+body.ems-dark .table th,
+body.ems-dark .table td {
+    background-color: #23272b !important;
+    color: #f1f1f1 !important;
+    border-color: #444 !important;
+}
+
+body.ems-dark .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #262a32 !important;
+}
+
+body.ems-dark .table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #23272b !important;
+}
+
+body.ems-dark .nav-tabs {
+    border-bottom: 1px solid #444 !important;
+}
+
+body.ems-dark .nav-tabs .nav-link {
+    background-color: #23272b !important;
+    color: #f1f1f1 !important;
+    border: 1px solid #444 !important;
+}
+
+body.ems-dark .nav-tabs .nav-link.active {
+    background-color: #444 !important;
+    color: #fff !important;
+    border: 1px solid #888 !important;
+}
+
+body.ems-dark a,
+body.ems-dark .nav-link,
+body.ems-dark .dropdown-item {
+    color: #7abaff !important;
+}
+
+body.ems-dark a:hover,
+body.ems-dark .nav-link:hover,
+body.ems-dark .dropdown-item:hover {
+    color: #fff !important;
+    text-decoration: underline;
+}
+
+body.ems-dark .card-header,
+body.ems-dark .card-footer {
+    border-color: #444 !important;
+}
+
+body.ems-dark .form-label,
+body.ems-dark label {
+    color: #f1f1f1 !important;
+}
+
+body.ems-dark .form-check-input:checked {
+    background-color: #7abaff !important;
+    border-color: #7abaff !important;
+}
+
+body.ems-dark .form-check-input {
+    background-color: #23272b !important;
+    border-color: #444 !important;
+}
+
+/* EMS Dark Mode Styles */
+body.ems-dark {
+    background: #181a1b !important;
+    color: #f1f1f1 !important;
+}
+
+body.ems-light {
+    background: #fff !important;
+    color: #222 !important;
+}
+
+body.ems-dark .navbar,
+body.ems-dark .footer,
+body.ems-dark .card,
+body.ems-dark .dropdown-menu,
+body.ems-dark .modal-content {
+    background: #23272b !important;
+    color: #f1f1f1 !important;
+    border-color: #222 !important;
+}
+
+body.ems-dark .card-header,
+body.ems-dark .card-footer {
+    background: #23272b !important;
+    color: #f1f1f1 !important;
+}
+
+body.ems-dark .btn,
+body.ems-dark .btn-outline-primary,
+body.ems-dark .btn-outline-info,
+body.ems-dark .btn-outline-success,
+body.ems-dark .btn-outline-warning,
+body.ems-dark .btn-outline-danger {
+    color: #f1f1f1;
+    border-color: #444;
+}
+
+body.ems-dark .btn-primary {
+    background: #0d6efd;
+    border-color: #0d6efd;
+}
+
+body.ems-dark .table {
+    background: #23272b !important;
+    color: #f1f1f1 !important;
+}
+
+body.ems-dark .table th,
+body.ems-dark .table td {
+    border-color: #333 !important;
+}
+
+body.ems-dark .form-control,
+body.ems-dark .form-select {
+    background: #23272b !important;
+    color: #f1f1f1 !important;
+    border-color: #333 !important;
+}
+
+body.ems-dark .dropdown-menu {
+    background: #23272b !important;
+    color: #f1f1f1 !important;
+}
+
+body.ems-dark .dropdown-item {
+    color: #f1f1f1 !important;
+}
+
+body.ems-dark .dropdown-item.active,
+body.ems-dark .dropdown-item:active {
+    background: #0d6efd !important;
+    color: #fff !important;
+}
+
+body.ems-dark .modal-content {
+    background: #23272b !important;
+    color: #f1f1f1 !important;
+}
+
+body.ems-dark hr {
+    border-color: #333 !important;
+}
+
+body.ems-dark .bg-primary {
+    background: #0d6efd !important;
+    color: #fff !important;
+}

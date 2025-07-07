@@ -9,14 +9,14 @@ export default function Footer() {
           <div className="col-md-6">
             <div className="d-flex align-items-center mb-2 mb-md-0">
               <img 
-                src="/logo11.png" 
+                src="/(EMS)_logo.png"
                 alt="EMS Logo" 
                 style={{ width: '40px', height: '40px' }}
                 className="me-3"
               />
               <div>
                 <h6 className="mb-0 fw-bold">Employee Management System</h6>
-                <small className="text-muted">Streamlining workforce management</small>
+                <small className="text-white-50">Streamlining workforce management</small>
               </div>
             </div>
           </div>
@@ -47,8 +47,8 @@ export default function Footer() {
               </div>
               <div className="col-md-4">
                 <div className="text-md-end">
-                  <small className="text-muted">
-                    &copy; {new Date().getFullYear()} EMS. All rights reserved.
+                  <small>
+                    <span className="text-white-50">&copy; 2025 Muhammed Ashraf Alkulaib. All rights reserved.</span>
                   </small>
                 </div>
               </div>
@@ -60,7 +60,7 @@ export default function Footer() {
         <hr className="my-3 border-secondary" />
         <div className="row">
           <div className="col-md-6">
-            <small className="text-muted">
+            <small className="text-white-50">
               <i className="fas fa-code me-1"></i>
               Built with React & Spring Boot
             </small>

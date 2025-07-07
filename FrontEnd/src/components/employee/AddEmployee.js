@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import EmployeeService from '../../services/EmployeeService';
 import { toast } from 'react-toastify';
+import PageHeader from '../layout/PageHeader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+
+const UserPlusIcon = (props) => <FontAwesomeIcon icon={faUserPlus} className="text-primary" {...props} />;
 
 const AddEmployee = () => {
   const navigate = useNavigate();
@@ -55,7 +60,11 @@ const AddEmployee = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Add New Employee</h2>
+      <PageHeader
+        icon={UserPlusIcon}
+        title="Add New Employee"
+        subtitle="Enter the details of the new employee."
+      />
 
       <form onSubmit={handleSubmit}>
         <div className="row">
@@ -192,12 +201,12 @@ const AddEmployee = () => {
         </div>
 
         <div className="d-flex justify-content-between">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-outline-primary px-4">
             Save Employee
           </button>
           <button
             type="button"
-            className="btn btn-secondary"
+            className="btn btn-outline-secondary px-4"
             onClick={() => navigate('/employees')}
           >
             Cancel

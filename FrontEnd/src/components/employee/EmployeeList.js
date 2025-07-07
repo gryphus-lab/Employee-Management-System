@@ -45,11 +45,14 @@ const EmployeeList = () => {
 
   return (
     <div className="container mt-4">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        {/* <h2>Employee List</h2> */}
-        <Link to="/employees/add" className="btn btn-primary ">
-          + Add Employee +
-        </Link>
+      <div className="d-flex align-items-center mb-1">
+        <i className="fas fa-users fa-lg me-2 text-primary" aria-hidden="true"></i>
+        <h2 className="mb-0 fw-bold">Employee Management</h2>
+        <div className="ms-auto">
+          <Link to="/employees/add" className="btn btn-outline-primary px-4">
+            + Add Employee +
+          </Link>
+        </div>
       </div>
 
       <SearchEmployee onSearch={handleSearch} onClear={handleClearSearch} />
@@ -70,7 +73,7 @@ const EmployeeList = () => {
                 <th className="text-end">Salary</th>
                 <th className="text-end">Bonus</th>
                 <th className="text-end">Vacation Days</th>
-                <th className="text-end">Actions</th>
+                <th className="text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -85,25 +88,27 @@ const EmployeeList = () => {
                   <td className="text-end">{emp.salary?.toLocaleString()}</td>
                   <td className="text-end">{emp.bonus?.toLocaleString()}</td>
                   <td className="text-end">{emp.annualVacationDays}</td>
-                  <td className="text-end">
-                    <Link
-                      to={`/employees/view/${emp.id}`}
-                      className="btn btn-sm btn-secondary me-2"
-                    >
-                      View
-                    </Link>
-                    <Link
-                      to={`/employees/edit/${emp.id}`}
-                      className="btn btn-sm btn-info me-2"
-                    >
-                      Edit
-                    </Link>
-                    <button
-                      className="btn btn-sm btn-danger"
-                      onClick={() => deleteEmployee(emp.id)}
-                    >
-                      Delete
-                    </button>
+                  <td className="text-center">
+                    <div className="d-flex justify-content-center gap-2 flex-wrap">
+                      <Link
+                        to={`/employees/view/${emp.id}`}
+                        className="btn btn-outline-info px-4 py-1 fw-bold"
+                      >
+                        View
+                      </Link>
+                      <Link
+                        to={`/employees/edit/${emp.id}`}
+                        className="btn btn-outline-primary px-4 py-1 fw-bold"
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        className="btn btn-outline-danger px-4 py-1 fw-bold"
+                        onClick={() => deleteEmployee(emp.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

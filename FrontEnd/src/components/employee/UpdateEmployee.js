@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import EmployeeService from '../../services/EmployeeService';
 import { toast } from 'react-toastify';
+import PageHeader from '../layout/PageHeader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
+
+const UserEditIcon = (props) => <FontAwesomeIcon icon={faUserEdit} className="text-primary" {...props} />;
 
 const UpdateEmployee = () => {
   const { id } = useParams();
@@ -26,11 +31,23 @@ const UpdateEmployee = () => {
     EmployeeService.getEmployeeById(id)
       .then(response => {
         const emp = response.data;
+        // Split name into firstName and lastName if not present
+        let firstName = emp.firstName || '';
+        let lastName = emp.lastName || '';
+        if ((!firstName || !lastName) && emp.name) {
+          const parts = emp.name.trim().split(' ');
+          firstName = parts[0] || '';
+          lastName = parts.slice(1).join(' ') || '';
+        }
         if (emp.joiningDate) {
           const date = new Date(emp.joiningDate);
           emp.joiningDate = date.toISOString().split('T')[0];
         }
-        setEmployee(emp);
+        setEmployee({
+          ...emp,
+          firstName,
+          lastName
+        });
         setLoading(false);
       })
       .catch(error => {
@@ -71,12 +88,24 @@ const UpdateEmployee = () => {
     }
   };
 
-  if (loading) return <div className="text-center mt-5">Loading...</div>;
+  if (loading) return (
+    <div className="text-center mt-5">
+      <img src="/logo.ico" alt="Loading..." style={{ width: 56, height: 56, marginBottom: 16, animation: 'pulse 1.5s infinite' }} />
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+      <p className="mt-2">Loading employee details...</p>
+    </div>
+  );
   if (error) return <div className="alert alert-danger mt-3">{error}</div>;
 
   return (
     <div className="container mt-4">
-      <h2>Update Employee</h2>
+      <PageHeader
+        icon={UserEditIcon}
+        title="Edit Employee"
+        subtitle="Update the employee's information."
+      />
 
       <form onSubmit={handleSubmit}>
         <div className="row">
@@ -213,12 +242,12 @@ const UpdateEmployee = () => {
         </div>
 
         <div className="d-flex justify-content-between">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-outline-primary px-4">
             Update Employee
           </button>
           <button
             type="button"
-            className="btn btn-secondary"
+            className="btn btn-outline-secondary px-4"
             onClick={() => navigate('/employees')}
           >
             Cancel

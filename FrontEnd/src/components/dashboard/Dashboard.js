@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 import EmployeeService from '../../services/EmployeeService';
+import PageHeader from '../layout/PageHeader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+
+const DashboardIcon = (props) => <FontAwesomeIcon icon={faTachometerAlt} className="text-primary" {...props} />;
 
 const Dashboard = () => {
   const [dashboardData, setDashboardData] = useState({
@@ -69,6 +74,7 @@ const Dashboard = () => {
   if (loading) {
     return (
       <div className="text-center mt-5">
+        <img src="/logo.ico" alt="Loading..." style={{ width: 56, height: 56, marginBottom: 16, animation: 'pulse 1.5s infinite' }} />
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
@@ -106,6 +112,12 @@ const Dashboard = () => {
 
   return (
     <div className="container mt-4">
+      <PageHeader
+        icon={DashboardIcon}
+        title="Dashboard"
+        subtitle="Overview of your organization"
+      />
+
       <div className="row">
         {/* Summary Cards */}
         <div className="col-md-12 mb-4">

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import PageHeader from '../layout/PageHeader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+
+const CogIcon = (props) => <FontAwesomeIcon icon={faCog} className="text-primary" {...props} />;
 
 const Settings = () => {
   const [settings, setSettings] = useState({
@@ -77,15 +82,11 @@ const Settings = () => {
 
   return (
     <div className="container mt-4">
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <div>
-          <h2>System Settings</h2>
-          <p className="text-muted">Configure your Employee Management System</p>
-        </div>
-        <Link to="/" className="btn btn-outline-primary">
-          <i className="fas fa-arrow-left me-2"></i>Back to Dashboard
-        </Link>
-      </div>
+      <PageHeader
+        icon={CogIcon}
+        title="System Settings"
+        subtitle="Configure your Employee Management System"
+      />
 
       <form onSubmit={handleSave}>
         <div className="row">
@@ -319,18 +320,18 @@ const Settings = () => {
           <div className="card-body">
             <div className="d-flex justify-content-between">
               <div>
-                <button type="submit" className="btn btn-primary me-2">
+                <button type="submit" className="btn btn-outline-primary px-4 me-2">
                   <i className="fas fa-save me-2"></i>Save Settings
                 </button>
-                <button type="button" className="btn btn-outline-secondary" onClick={handleReset}>
+                <button type="button" className="btn btn-outline-secondary px-4" onClick={handleReset}>
                   <i className="fas fa-undo me-2"></i>Reset to Default
                 </button>
               </div>
               <div>
-                <button type="button" className="btn btn-outline-warning me-2">
+                <button type="button" className="btn btn-outline-warning px-4 me-2">
                   <i className="fas fa-file-export me-2"></i>Export Settings
                 </button>
-                <button type="button" className="btn btn-outline-info">
+                <button type="button" className="btn btn-outline-info px-4">
                   <i className="fas fa-file-import me-2"></i>Import Settings
                 </button>
               </div>
